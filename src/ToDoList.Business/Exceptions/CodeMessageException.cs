@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net;
 
-namespace ToDoList.Business.Exceptions
+namespace ToDoList.Business.Exceptions;
+
+public class CodeMessageException : Exception
 {
-	public class CodeMessageException : Exception
+	public CodeMessageException(ErrorStatusCode errCode, string errMessage, HttpStatusCode httpStatusCode = HttpStatusCode.BadRequest)
 	{
-		public CodeMessageException(ErrorStatusCode errCode, string errMessage, HttpStatusCode httpStatusCode = HttpStatusCode.BadRequest)
-		{
-			ErrCode = errCode;
-			ErrMessage = errMessage;
-			HttpStatusCode = httpStatusCode;
-		}
-
-		public ErrorStatusCode ErrCode { get; set; }
-		public string ErrMessage { get; set; }
-		public HttpStatusCode HttpStatusCode { get; set; }
+		ErrCode = errCode;
+		ErrMessage = errMessage;
+		HttpStatusCode = httpStatusCode;
 	}
+
+	public ErrorStatusCode ErrCode { get; set; }
+	public string ErrMessage { get; set; }
+	public HttpStatusCode HttpStatusCode { get; set; }
 }

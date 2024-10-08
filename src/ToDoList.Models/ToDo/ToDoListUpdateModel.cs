@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace ToDoList.Models.ToDo
+namespace ToDoList.Models.ToDo;
+
+public record ToDoListUpdateModel
 {
-	public record ToDoListUpdateModel
-	{
-		[Required]
-		public string Title { get; init; }
-		public string Description { get; init; }
-		public bool IsCompleted { get; init; }
-		public DateTime? DateCompleted { get; init; }
-	}
+	[Required]
+	public string Title { get; init; }
+	public string Description { get; init; }
+	public bool IsCompleted { get; init; }
+	public DateTime? DateCompleted { get; init; }
 }
